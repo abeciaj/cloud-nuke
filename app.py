@@ -8,12 +8,16 @@ logger.setLevel(logging.INFO)
 def lambda_handler(event, context):
     logger.info("Starting cloud-nuke execution...")
     try:
-        region = os.getenv("AWS_REGION", "us-east-1")
+        # Get region dynamically from the event or use a default
+        region = event.get("region", os.environ.get("AWS_REGION", "us-east-1"))
+        
+        # Get resource type dynamically, default to "s3" if not provided
+        resource_type = event.get("resource_type", "s3")
         command = [
             "cloud-nuke",
             "aws",
             "--region", region,
-            "--resource-type", event.get("resource_type", "s3"),
+            "--resource-type", resource_type,
             "--force"
         ]
         logger.info(f"Executing command: {' '.join(command)}")

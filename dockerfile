@@ -1,4 +1,4 @@
-FROM public.ecr.aws/lambda/python:3.9
+FROM amazon/aws-lambda-python:3.9
 
 # Install cloud-nuke
 RUN yum install -y wget && \

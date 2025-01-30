@@ -53,6 +53,7 @@ docker push <your-account-id>.dkr.ecr.<region>.amazonaws.com/cloud-nuke-lambda:l
 3. Test the Function: Invoke the Lambda with a payload
 ```bash
 {
-    "resource_type": "s3"
+  "region": "us-east-1",
+  "resource_type": "ec2"
 }
 ```
