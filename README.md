@@ -36,7 +36,7 @@ that the default security group itself is unable to be deleted. Visit the [offic
 ## Requirements
 
 1. ECR
-2. Lambda Function with `s3:ListAllMyBuckets`, `s3:DeleteBucket`, and `s3:DeleteObject` permissions
+2. Lambda Function with `AdministratorAccess` permission
 3. Docker
    
 ## Deployment
